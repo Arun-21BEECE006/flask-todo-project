@@ -1,0 +1,120 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #eef1f5;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+/* Container */
+.content {
+    width: 650px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+.content h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.content h4 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+}
+
+/* Header */
+th {
+    background: #4CAF50;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+/* Cells */
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Hover */
+tr:hover {
+    background: #f9f9f9;
+}
+
+/* Action links */
+td a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: white;
+    margin-bottom: 5px;
+}
+
+/* Update */
+td a:first-child {
+    background: #2196F3;
+}
+
+/* Delete */
+td a:last-child {
+    background: #f44336;
+}
+
+/* Hover */
+td a:hover {
+    opacity: 0.85;
+}
+
+/* Form */
+form {
+    display: flex;
+    gap: 10px;
+}
+
+/* Input field */
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Submit button */
+input[type="submit"] {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Button hover */
+input[type="submit"]:hover {
+    background: #45a049;
+}

@@ -4,8 +4,14 @@ from datetime import datetime
 import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///test.db')
-db = SQLAlchemy(app)
+database_url = os.environ.get('DATABASE_URL')
+if not database_url:
+    database_url = 'sqlite:///test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = database_url
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy()
+db.init_app(app)
 
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -14,7 +20,10 @@ class Todo(db.Model):
 
     def __repr__(self):
         return '<Task %r>' %self.id
-    
+
+with app.app_context():
+    db.create_all()
+
 @app.route('/', methods=['POST', 'GET'])
 def index():
     if request.method=='POST':
@@ -38,7 +47,7 @@ def delete(id):
         db.session.delete(task_delete)
         db.session.commit()
         return redirect('/')
-    except:
+    except Exception:
         return "There is an Errror in a delete page"
 
 @app.route('/update/<int:id>', methods=['POST', 'GET'])
@@ -50,7 +59,7 @@ def update(id):
         try:
             db.session.commit()
             return redirect('/')
-        except:
+        except Exception:
             return "There is an error in a update task"
 
     else:
